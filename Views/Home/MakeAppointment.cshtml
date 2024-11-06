@@ -1,0 +1,164 @@
+﻿
+@model bilgi.Models.Visitor_Appointment
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule an Appointment</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        .appointment-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+            .appointment-container h2 {
+                color: #0056b3;
+                margin-bottom: 20px;
+                font-size: 24px;
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: #333;
+            }
+
+            .form-group input,
+            .form-group select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                color: #333;
+                font-size: 14px;
+            }
+
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-edit {
+            background-color: #ff9800;
+        }
+
+        .btn-clear {
+            background-color: #f44336;
+        }
+
+        .btn-confirm {
+            background-color: #4CAF50;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="appointment-container">
+        <h2>Schedule an Appointment</h2>
+
+
+
+
+        <form method="post" action="/Home/Appointment">
+            <div class="form-group">
+                <label for="service">Service</label>
+                <select id="service" name="Service" required>
+                    <option value="">Select a service</option>
+                    <option value="Public Health Services">Public Health Services</option>
+                    <option value="Educational Services">Educational Services</option>
+                    <option value="Employment and Labor Services">Employment and Labor Services</option>
+                    <option value="Administrative Services">Administrative Services</option>
+                    <option value="Land and Property Management">Land and Property Management</option>
+                    <option value="Public Safety and Security">Public Safety and Security</option>
+                    <option value="Licensing and Permits">Licensing and Permits</option>
+                    <!-- Other options... -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="department">Department</label>
+                <select id="department" name="Department" required>
+                    <option value="">Select a department</option>
+                    <option value="Provincial Directorate of Administrative Affairs">Provincial Directorate of Administrative Affairs</option>
+                    <option value="Private Secretariat">Private Secretariat</option>
+                    <option value="Public Relations Office">Public Relations Office</option>
+                    <option value="Provincial Planning and Coordination Directorate">Provincial Planning and Coordination Directorate</option>
+                    <option value="Provincial Directorate of Population and Citizenship">Provincial Directorate of Population and Citizenship</option>
+                    <option value="Provincial Directorate of National Education">Provincial Directorate of National Education</option>
+                    <option value="Provincial Police Department">Provincial Police Department</option>
+                    <option value="Treasury Office">Treasury Office</option>
+
+                    <!-- Other options... -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="Email" value="@ViewBag.Email" readonly required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Appointment Type</label>
+                <select id="type" name="Type" required>
+                    <option value="">Select type</option>
+                    <option value="InPerson">In-Person</option>
+                    <option value="Virtual">Virtual</option>
+                </select>
+            </div>
+            <div class="form-buttons">
+                <button type="reset" class="btn btn-clear">Clear</button>
+                <button type="submit" class="btn btn-confirm">Confirm</button>
+            </div>
+        </form>
+
+
+
+    </div>
+
+</body>
+</html>

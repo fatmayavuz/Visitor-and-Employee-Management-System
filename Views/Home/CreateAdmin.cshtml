@@ -1,0 +1,146 @@
+﻿@{
+    ViewBag.Title = "Create Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Admin</title>
+    <style>
+        /* Professional look for the body and form container */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9; /* Background color from the dashboard */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .register-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 450px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+        }
+
+            /* Add subtle animation on hover */
+            .register-container:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        .form-row {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .input-group {
+            width: 100%;
+            text-align: left;
+        }
+
+            .input-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-size: 14px;
+                color: #333;
+                font-weight: bold;
+            }
+
+            .input-group input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                font-size: 14px;
+                color: #000; /* Set text color to black */
+                transition: border-color 0.3s;
+            }
+
+                .input-group input:focus {
+                    border-color: #007bff;
+                    outline: none;
+                }
+
+        /* Enhance button styling */
+        .form-row button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .form-row button:hover {
+                background-color: #0056b3;
+            }
+
+        /* Add spacing to keep everything centered */
+        .spacer {
+            height: 10vh;
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <br />
+    <div class="spacer"></div>
+    <div class="register-container">
+        <h2>Create Admin Account</h2>
+        @using (Html.BeginForm("CreateAdmin", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="Name" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="surname">Surname</label>
+                    <input type="text" id="surname" name="Surname" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="Password" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <button type="submit">Save</button>
+            </div>
+        }
+    </div>
+    <div class="spacer"></div>
+</body>
+</html>
+

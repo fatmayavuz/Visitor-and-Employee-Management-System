@@ -1,0 +1,75 @@
+﻿@model IEnumerable<bilgi.Models.Visitor>
+
+@{
+    ViewBag.Title = "ShowAllVisitors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Visitors</title>
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <style>
+        .btn-custom {
+            background-color: #28a745;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+            .btn-custom:hover {
+                background-color: #218838;
+            }
+
+        .btn-container {
+            margin: 20px 0;
+            text-align: right; /* Align the button to the right */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>All Visitors</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Tc</th>
+                    <th>Tel</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Password</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var visitor in Model)
+                {
+                    <tr>
+                        <td>@visitor.Name</td>
+                        <td>@visitor.Surname</td>
+                        <td>@visitor.Tc</td>
+                        <td>@visitor.Tel</td>
+                        <td>@visitor.Email</td>
+                        <td>@visitor.Address</td>
+                        <td>@visitor.Password</td>
+                        <td>
+                            <a href="@Url.Action("DeleteVisitor", "Home", new { id = visitor.Id_v })" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this visitor?');">Delete</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        
+    </div>
+</body>
+</html>
+ 

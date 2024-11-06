@@ -1,0 +1,71 @@
+﻿@model IEnumerable<bilgi.Models.Employee>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Employees</title>
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <style>
+        .btn-danger {
+            background-color: red;
+            color: white;
+        }
+
+            .btn-danger:hover {
+                background-color: darkred;
+            }
+
+        .btn-success {
+            background-color: green;
+            color: white;
+        }
+
+            .btn-success:hover {
+                background-color: darkgreen;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>All Employees</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Tc</th>
+                    <th>Tel</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Department</th>
+                    <th>Password</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model)
+                {
+                    <tr>
+                        <td>@employee.Name</td>
+                        <td>@employee.Surname</td>
+                        <td>@employee.Tc</td>
+                        <td>@employee.Tel</td>
+                        <td>@employee.Email</td>
+                        <td>@employee.Address</td>
+                        <td>@employee.Department</td>
+                        <td>@employee.Password</td>
+                        <td>
+                            <a href="@Url.Action("EditEmployee", "Home", new { id = employee.Id_e })" class="btn btn-success">Edit</a>
+                            <a href="@Url.Action("DeleteEmployee", "Home", new { id = employee.Id_e })" class="btn btn-danger"  onclick="return confirm('Are you sure you want to delete this employee?');">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+

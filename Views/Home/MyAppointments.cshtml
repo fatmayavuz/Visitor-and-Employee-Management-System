@@ -1,0 +1,74 @@
+﻿
+
+@{
+    ViewBag.Title = "MyAppointments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<bilgi.Models.Visitor_Appointment>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments</title>
+    <style>
+        .btn-custom {
+            background-color: #28a745;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+            .btn-custom:hover {
+                background-color: #218838;
+            }
+
+        .btn-container {
+            margin: 20px 0;
+            text-align: right;
+        }
+
+        .table-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container table-container">
+        <h2>My Appointments</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Department</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var appointment in Model)
+                {
+                    <tr>
+                        <td>@appointment.Service</td>
+                        <td>@appointment.Department</td>
+                        <td>@appointment.Email</td>
+                        <td>@(appointment.Date != null ? appointment.Date.Value.ToString("dd.MM.yyyy") : "No Date")</td>
+                        <td>@appointment.Type</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @if (!Model.Any())
+        {
+            <p>You have no appointments scheduled.</p>
+        }
+    </div>
+</body>
+</html>

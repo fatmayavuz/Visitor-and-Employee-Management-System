@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Appointment Confirmation";
+}
+
+<h2>Appointment Confirmation</h2>
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.SuccessMessage
+    </div>
+}
+
+<!-- Additional confirmation details can be added here -->

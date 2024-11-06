@@ -1,0 +1,142 @@
+﻿
+
+@{
+    ViewBag.Title = "Login Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml"; <!-- MyAppointments'ta olduğu gibi aynı layout -->
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #fff;
+            text-align: center;
+        }
+        /* Navbar styles */
+        .navbar {
+            background-color: #2c3e50;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            top: 0; /* Ensure navbar is fixed to the top */
+            z-index: 1000; /* Ensure navbar is on top of other content */
+            display: flex; /* Use flexbox for alignment */
+            justify-content: center; /* Center the links */
+            padding: 10px 0; /* Add some padding */
+        }
+
+            .navbar a {
+                color: white;
+                font-weight: bold;
+                padding: 15px 20px; /* Add padding for better spacing in navbar */
+                text-decoration: none; /* Remove underline from links */
+            }
+
+                .navbar a:hover {
+                    background-color: rgba(255, 255, 255, 0.2); /* Optional hover effect */
+                }
+
+        .container {
+            max-width: 1200px; /* Genişlik artırıldı */
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .login-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px; /* Aralık artırıldı */
+            padding: 40px; /* Ekstra padding eklendi */
+            box-sizing: border-box;
+        }
+
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 40px 20px; /* İçerik genişletildi */
+            text-align: center;
+            width: 320px; /* Kutuların genişliği artırıldı */
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: #333;
+        }
+
+            .login-box:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
+            }
+
+            .login-box h4 {
+                margin-bottom: 20px;
+                color: #333;
+                font-size: 1.5rem; /* Yazı büyüklüğü artırıldı */
+            }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border-radius: 25px;
+            padding: 12px 25px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.1rem; /* Buton metni büyütüldü */
+        }
+
+            .btn-custom:hover {
+                background-color: #0056b3;
+            }
+
+        /* Iconlar için stil */
+        .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #007bff; /* İkon rengi */
+        }
+
+        /* Ortak ayarlamalar */
+        .login-box {
+            flex: 1 1 320px; /* Boyut artırıldı */
+            max-width: 320px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <div class="login-box">
+                <div class="icon">👑</div> <!-- İkon eklendi -->
+                <h4>Admin Login</h4>
+                <a href="@Url.Action("Login_Admin", "Home")" class="btn btn-custom">Login</a>
+            </div>
+            <div class="login-box">
+                <div class="icon">💼</div> <!-- İkon eklendi -->
+                <h4>Employee Login</h4>
+                <a href="@Url.Action("Login_Employee", "Home")" class="btn btn-custom">Login</a>
+            </div>
+            <div class="login-box">
+                <div class="icon">👤</div> <!-- İkon eklendi -->
+                <h4>Visitor Login</h4>
+                <a href="@Url.Action("Login_Visitor", "Home")" class="btn btn-custom">Login</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

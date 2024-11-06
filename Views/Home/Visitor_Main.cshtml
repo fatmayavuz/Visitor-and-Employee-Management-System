@@ -1,0 +1,117 @@
+﻿
+
+@{
+    ViewBag.Title = "Visitor Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml"; <!-- MyAppointments'ta olduğu gibi aynı layout -->
+}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<!-- Layout içine eklenebilir -->
+<link rel="stylesheet" href="~/Content/Site.css" />
+
+<style>
+    body {
+        background-color: #f4f6f9;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .dashboard-container {
+        margin-top: 50px;
+    }
+
+    .welcome-message {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+        .welcome-message h1 {
+            font-weight: 700;
+            color: #007bff;
+        }
+
+    .dashboard-content {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .action-cards {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    .section-card {
+        flex: 1;
+        margin: 10px;
+        min-width: 280px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: #fff;
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+        font-size: 15px;
+    }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-custom {
+        background-color: #007bff;
+        color: white;
+        border-radius: 20px;
+        padding: 10px 20px;
+        transition: background-color 0.3s;
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+    .icon-style {
+        font-size: 1em; /* İkonu h1 başlığı ile aynı boyutta yapar */
+        vertical-align: middle; /* İkonu h1 ile aynı hizaya getirir */
+    }
+</style>
+
+<div class="container dashboard-container">
+    <div class="welcome-message">
+        <div class="welcome-message">
+            <div class="icon">
+                <h1>
+                    <span class="icon-style">👤</span>Welcome, @ViewBag.VisitorFullName.ToUpper()!
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="action-cards">
+                <div class="section-card">
+                    <h3>Make an Appointment</h3>
+                    <p>Schedule a new appointment with our team.</p>
+                    <a href="@Url.Action("MakeAppointment", "Home")" class="btn btn-custom">Make Appointment</a>
+                </div>
+
+                <div class="section-card">
+                    <h3>Track Your Appointment</h3>
+                    <p>Check the status of your current appointments.</p>
+                    <a href="@Url.Action("MyAppointments", "Home", new { email = ViewBag.Email })" class="btn btn-custom">View My Appointments</a>
+                </div>
+
+                <div class="section-card">
+                    <h3>Edit Your Profile</h3>
+                    <p>Update your personal information.</p>
+                    <a href="@Url.Action("EditVisitor", "Home")" class="btn btn-custom">Edit Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

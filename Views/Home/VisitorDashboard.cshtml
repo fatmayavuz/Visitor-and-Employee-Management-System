@@ -1,0 +1,29 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "VisitorDashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visitor Dashboard</title>
+    <style>
+        .dashboard-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid dashboard-container">
+        <h2>Welcome to the Visitor Dashboard</h2>
+        <p>Here is where visitors will be taken after they successfully log in.</p>
+    </div>
+</body>
+</html>

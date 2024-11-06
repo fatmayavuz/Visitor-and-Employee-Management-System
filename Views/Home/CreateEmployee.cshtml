@@ -1,0 +1,175 @@
+﻿@model bilgi.Models.Employee
+
+@{
+    ViewBag.Title = "CreateEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Employee</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Body and container styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9; /* Background color from the dashboard */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .register-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            margin: 20px;
+        }
+
+        /* Form element styles */
+        h2 {
+            color: #333333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            justify-content: space-between;
+        }
+
+        .input-group {
+            flex: 1;
+            text-align: left;
+            min-width: 200px;
+        }
+
+            .input-group label {
+                display: block;
+                margin-bottom: 5px;
+                color: #333333;
+                font-weight: bold;
+            }
+
+            .input-group input,
+            .input-group select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #cccccc;
+                border-radius: 5px;
+                outline: none;
+                color: #000; /* Set text color to black */
+                transition: border-color 0.3s;
+            }
+
+                .input-group input:focus,
+                .input-group select:focus {
+                    border-color: #007bff;
+                }
+
+        /* Button styles */
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Create Employee</h2>
+        @using (Html.BeginForm("CreateEmployee", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="Name" required>
+                </div>
+                <div class="input-group">
+                    <label for="surname">Surname</label>
+                    <input type="text" id="surname" name="Surname" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="Tc">Tc</label>
+                    <input type="text" id="tc" name="Tc" required>
+                </div>
+                <div class="input-group">
+                    <label for="Tel">Tel</label>
+                    <input type="text" id="tel" name="Tel" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="Address">Address</label>
+                    <input type="text" id="address" name="Address" required>
+                </div>
+                <div class="input-group">
+                    <label for="department">Department</label>
+                    <select id="department" name="Department" asp-for="Department" required>
+                        <option value="">Select a department</option>
+                        <option value="Provincial Directorate of Administrative Affairs">Provincial Directorate of Administrative Affairs</option>
+                        <option value="Private Secretariat">Private Secretariat</option>
+                        <option value="Public Relations Office">Public Relations Office</option>
+                        <option value="Provincial Planning and Coordination Directorate">Provincial Planning and Coordination Directorate</option>
+                        <option value="Provincial Directorate of Population and Citizenship">Provincial Directorate of Population and Citizenship</option>
+                        <option value="Provincial Directorate of National Education">Provincial Directorate of National Education</option>
+                        <option value="Provincial Police Department">Provincial Police Department</option>
+                        <option value="Treasury Office">Treasury Office</option>
+                        <!-- Add more departments as needed -->
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="Password" required>
+                </div>
+                <div class="input-group">
+                    <label for="starting_Date">Starting Date</label>
+                    <input type="datetime-local" id="starting_Date" name="Starting_Date" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="leaving_Date">Leaving Date</label>
+                    <input type="datetime-local" id="leaving_Date" name="Leaving_Date">
+                </div>
+            </div>
+            <button type="submit">Save</button>
+        }
+    </div>
+</body>
+</html>
+
